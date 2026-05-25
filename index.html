@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポリクリ メモ追加</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📋 ポリクリ メモ追加</h1>
+
+    <form id="task-form">
+
+      <div class="field">
+        <label for="name">タイトル <span class="required">*</span></label>
+        <input type="text" id="name" placeholder="例：川崎病の診断基準" required />
+      </div>
+
+      <div class="field">
+        <label for="dept">診療科</label>
+        <select id="dept">
+          <option value="">未選択</option>
+          <option value="呼吸器内科">呼吸器内科</option>
+          <option value="産婦人科">産婦人科</option>
+          <option value="小児科">小児科</option>
+          <option value="消化器外科">消化器外科</option>
+          <option value="心臓血管外科">心臓血管外科</option>
+          <option value="消化器内科">消化器内科</option>
+          <option value="循環器内科">循環器内科</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="memo">実習メモ</label>
+        <textarea id="memo" rows="3" placeholder="実習中に気になったこと"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="report">レポート考察</label>
+        <textarea id="report" rows="3" placeholder="レポートに使いたい内容"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="cbt">CBT知識</label>
+        <textarea id="cbt" rows="3" placeholder="CBT・国試に関連する知識"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="date">作成日時</label>
+        <input type="date" id="date" />
+      </div>
+
+      <button type="submit" id="submit-btn">Notionに追加する</button>
+
+    </form>
+
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
