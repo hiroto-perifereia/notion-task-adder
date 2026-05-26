@@ -1,4 +1,4 @@
-const CACHE_NAME = "polycli-memo-v1";
+const CACHE_NAME = "polycli-memo-v2";
 const ASSETS = [
   "/",
   "/index.html",
@@ -30,7 +30,6 @@ self.addEventListener("activate", (e) => {
 
 // ネットワーク優先、失敗時はキャッシュにフォールバック
 self.addEventListener("fetch", (e) => {
-  // APIリクエストはキャッシュしない
   if (e.request.url.includes("/api/")) return;
 
   e.respondWith(
