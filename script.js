@@ -2,6 +2,28 @@
 const dateInput = document.getElementById("date");
 dateInput.value = new Date().toISOString().split("T")[0];
 
+// 診療科の選択肢をNotionから動的取得
+async function loadDepartments() {
+  const select = document.getElementById("dept");
+  try {
+    const res = await fetch("/api/get-departments");
+    const { departments } = await res.json();
+
+    select.innerHTML = '<option value="">未選択</option>';
+    departments.forEach((name) => {
+      const opt = document.createElement("option");
+      opt.value = name;
+      opt.textContent = name;
+      select.appendChild(opt);
+    });
+  } catch (err) {
+    select.innerHTML = '<option value="">取得失敗（手動入力不可）</option>';
+    console.error("診療科取得エラー:", err);
+  }
+}
+
+loadDepartments();
+
 // トースト通知
 function showToast(message, isError = false) {
   const toast = document.getElementById("toast");
